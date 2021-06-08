@@ -19,7 +19,7 @@
 	"rules": [
 		{
 			"scope": "comment",
-			"foreground": "#403C58"
+			"foreground": "#817c9c"
 		},
 		{
 			"scope": "constant.language, variable.parameter",
