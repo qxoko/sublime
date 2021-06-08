@@ -1,0 +1,4 @@
+*.user-ca-bundle
+/Meander/
+/numpy/
+/CSV/

@@ -1,0 +1,59 @@
+{
+	"name": "Lone Dark",
+	"globals": {
+		"accent": "#D3B58D",
+		"background": "#1F1D29",
+		"block_caret": "rgba(144, 238, 144, 0.6)",
+		"brackets_options": "underline",
+		"caret": "rgba(144, 238, 144, 1)",
+		"fold_marker": "#FF0",
+		"foreground": "#FFFFFF",
+		"gutter": "#1F1D29",
+		"gutter_foreground": "#FFFFFF",
+		"inactive_selection": "#0049F5",
+		"line_highlight": "#3E3D32",
+		"selection": "#FAEBD791",
+		"selection_foreground": "white",
+		"tags_options": "underline"
+	},
+	"rules": [
+		{
+			"scope": "comment",
+			"foreground": "#403C58"
+		},
+		{
+			"scope": "constant.language, variable.parameter",
+			"foreground": "#79FFCF"
+		},
+		{
+			"scope": "entity.name, keyword.declaration, meta.annotation, meta.path, meta.struct meta.block, meta.tag, support.variable, variable, variable.other.readwrite",
+			"foreground": "lightblue"
+		},
+		{
+			"scope": "entity.name.constant, keyword.control, meta.class entity.name.class, meta.constant, meta.function.parameters, meta.struct entity.name.struct, meta.struct meta.group, storage.type, support.constant, support.type, variable.type",
+			"foreground": "lightgreen"
+		},
+		{
+			"scope": "entity.name.enum, keyword.operator, meta.block meta.method entity.name.function, meta.block storage.modifier, meta.class storage.type, meta.function-call variable.function, meta.preprocessor, meta.struct storage.type - meta.block, meta.template storage.type, punctuation.section, variable.other",
+			"foreground": "#D3B58D", // undecided on these
+			"foreground": "#fff"
+		},
+		{
+			"scope": "entity.name.function, keyword, storage",
+			"foreground": "#34738E"
+		},
+		{
+			"scope": "constant.numeric",
+			"foreground": "#C3A5E6"
+		},
+		{
+			"scope": "invalid",
+			"foreground": "darkseagreen",
+			"background": "#504038"
+		},
+		{
+			"scope": "string",
+			"foreground": "#0FDFAF"
+		}
+	]
+}

@@ -1,0 +1,59 @@
+%YAML 1.2
+---
+file_extensions:
+  - conf
+scope: source.cobwebconfig
+
+contexts:
+  main:
+    - include: brace_comments
+    - include: comments
+    - include: brace_template
+    - include: variables
+
+  comments:
+    - match: '^\s*//.*$'
+      scope: comment.line
+
+  brace_comments:
+    - match: '^\s*//.*\{'
+      push: brace_comment_inside
+
+  brace_comment_inside:
+    - meta_scope: comment.block
+    - match: \{
+      push: brace_comment_inside
+    - match: \}
+      pop: true
+
+  html_string:
+    - meta_scope: string
+    - match: \${.*}
+      scope: constant.other.placeholder
+    - match: \%s
+      scope: constant.other.placeholder
+    - match: $
+      pop: true
+
+  brace_template:
+    - match: '^\s*.*\s*{$'
+      push: Packages/HTML/HTML.sublime-syntax
+      with_prototype:
+        - match: \"
+          push: html_string
+          with_prototype:
+            - match: \"
+              pop: true
+        - match: \%s
+          scope: constant.other.placeholder
+        - match: \}
+          pop: true
+
+  variables:
+    - match: '^\s*[\w_.]+\s*=\s*'
+      push: Packages/HTML/HTML.sublime-syntax
+      with_prototype:
+        - match: \b(true|false|reset)\b
+          scope: constant.numeric
+        - match: $
+          pop: true

@@ -1,0 +1,12 @@
+{
+	"extensions":
+	[
+		"x"
+	],
+	"word_wrap": true,
+	"wrap_width": 64,
+	"highlight_line": false,
+	"draw_centered": true,
+	"spell_check": false,
+	"trim_automatic_white_space": true,
+}

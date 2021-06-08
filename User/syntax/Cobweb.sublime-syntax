@@ -1,0 +1,153 @@
+%YAML 1.2
+---
+file_extensions:
+  - x
+scope: text.cobweb
+
+contexts:
+  comments:
+    - match: '^\s*//.*$'
+      scope: comment.line
+
+  brace_comments:
+    - match: '^\s*//.*\{'
+      push: brace_comment_inside
+
+  brace_comment_inside:
+    - meta_scope: comment.block
+    - match: \{
+      push: brace_comment_inside
+    - match: \}
+      pop: true
+
+  code_blocks:
+    - match: '^\s*(code)\s*(.+)\s*{$'
+      captures:
+        1: entity.name
+        2: comment
+      push: brace_clear
+
+  brace_clear:
+    - meta_scope: foreground
+    - match: \{
+      push: brace_clear
+    - match: \}
+      pop: true
+
+  main:
+    - include: brace_comments
+    - include: comments
+    - include: code_blocks
+
+    # if-statement
+    - match: '^\s*(if)'
+      scope: keyword.control.conditional
+      push:
+        - match: '\b(page|parent|project)\b'
+          scope: support.function
+        - match: '{$'
+          pop: true
+
+    - match: '^\s*}\s+(else)\s+{'
+      captures:
+        1: keyword.control.conditional
+
+    - match: '^\s*(html)\s*{$'
+      captures:
+        1: support.function
+
+    # blocks
+    - match: '^\s*(.+)\s*{$'
+      captures:
+        1: entity.name
+
+    # function
+    - match: '^\s*ø'
+      scope: string
+
+    # headings
+    - match: '^\s*\#+'
+      scope: string
+      push:
+        - match: '<.+?>'
+          scope: comment
+        - match: '$'
+          pop: true
+
+    # images
+    - match: '^\s*\%+'
+      scope: constant.numeric
+
+    # token
+    - match: '^\s*\&+'
+      scope: constant.numeric
+
+    # quote
+    - match: '^\s*\$+'
+      scope: support.function
+
+    # import
+    - match: '^\s*>'
+      scope: entity
+
+    - match: '^\s*\+'
+      scope: entity
+      push:
+        - match: \S+
+          set:
+            - match: .+
+              scope: keyword.control
+            - match: $
+              pop: true
+
+    # inline code
+    - match: '`'
+      scope: comment.line
+
+    # page key
+    - match: '^\b(html)\b.+{$'
+      captures:
+        1: support.function
+
+    # variables
+    - match: '^\s*[\w_.]+\s*=\s*'
+      push:
+        - match: \b(true|false)\b
+          scope: constant.numeric
+        - match: .*
+          scope: string
+        - match: $
+          pop: true
+
+    # video
+    - match: '^\s*@'
+      scope: constant.numeric
+      push:
+        - match: \S+
+          set:
+            - match: .+
+              scope: keyword.control
+            - match: $
+              pop: true
+
+    # html
+    - match: '^\s*\*'
+      scope: comment
+      push: 'Packages/HTML/HTML.sublime-syntax'
+      with_prototype:
+        - match: '$'
+          pop: true
+
+    # inline link
+    - match: '(\[).*?(\]\(.*?\))'
+      captures:
+        1: comment
+        2: comment
+
+    # divider
+    - match: '^\s*\-\-\-'
+      scope: comment
+
+    # lists
+    - match: '^\s*\-'
+      scope: string

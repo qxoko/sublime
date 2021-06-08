@@ -1,0 +1,71 @@
+[
+	{ "keys": ["f3"], "command": "cancel_build" },
+
+	{ "keys": ["ctrl+k", "ctrl+u"], "command": "upper_case" },
+	{ "keys": ["ctrl+k", "ctrl+l"], "command": "lower_case" },
+	{ "keys": ["ctrl+k", "ctrl+t"], "command": "title_case" },
+
+	{ "keys": ["ctrl+alt+q"], "command": "wrap_lines", "args": {"width": 45}},
+	{ "keys": ["ctrl+left"], "command": "move_to", "args": {"to": "bol", "extend": false} },
+	{ "keys": ["ctrl+right"], "command": "move_to", "args": {"to": "eol", "extend": false} },
+
+	{ "keys": ["ctrl+shift+left"], "command": "move_to", "args": {"to": "bol", "extend": true} },
+	{ "keys": ["ctrl+shift+right"], "command": "move_to", "args": {"to": "eol", "extend": true} },
+
+	{ "keys": ["ctrl+shift+up"], "command": "move_to", "args": {"to": "bof", "extend": true} },
+	{ "keys": ["ctrl+shift+down"], "command": "move_to", "args": {"to": "eof", "extend": true} },
+
+	{ "keys": ["alt+left"], "command": "move", "args": {"by": "words", "forward": false} },
+	{ "keys": ["alt+right"], "command": "move", "args": {"by": "word_ends", "forward": true} },
+	{ "keys": ["alt+shift+left"], "command": "move", "args": {"by": "words", "forward": false, "extend": true} },
+	{ "keys": ["alt+shift+right"], "command": "move", "args": {"by": "word_ends", "forward": true, "extend": true} },
+	{ "keys": ["alt+up"], "command": "move", "args": {"by": "stops", "empty_line": true, "forward": false} },
+	{ "keys": ["alt+down"], "command": "move", "args": {"by": "stops", "empty_line": true, "forward": true} },
+	{ "keys": ["alt+shift+up"], "command": "move", "args": {"by": "stops", "empty_line": true, "forward": false, "extend": true} },
+	{ "keys": ["alt+shift+down"], "command": "move", "args": {"by": "stops", "empty_line": true, "forward": true, "extend": true} },
+
+	{ "keys": ["ctrl+up"], "command": "move_to", "args": {"to": "bof", "extend": false} },
+	{ "keys": ["ctrl+down"], "command": "move_to", "args": {"to": "eof", "extend": false} },
+
+	{ "keys": ["alt+backspace"], "command": "delete_word", "args": { "forward": false } },
+	{ "keys": ["alt+delete"], "command": "delete_word", "args": { "forward": true } },
+	{ "keys": ["ctrl+backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete to Hard BOL.sublime-macro"} },
+	{ "keys": ["ctrl+delete"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete to Hard EOL.sublime-macro"} },
+
+	{ "keys": ["ctrl+alt+up"], "command": "swap_line_up" },
+	{ "keys": ["ctrl+alt+down"], "command": "swap_line_down" },
+
+	{ "keys": ["ctrl+m"], "command": "sublime_merge_open_repo" },
+
+	{ "keys": ["alt+1"], "command": "focus_group", "args": { "group": 0 } },
+	{ "keys": ["alt+2"], "command": "focus_group", "args": { "group": 1 } },
+	{ "keys": ["alt+3"], "command": "focus_group", "args": { "group": 2 } },
+	{ "keys": ["alt+ctrl+1"], "command": "move_to_group", "args": { "group": 0 } },
+	{ "keys": ["alt+ctrl+2"], "command": "move_to_group", "args": { "group": 1 } },
+	{ "keys": ["alt+ctrl+3"], "command": "move_to_group", "args": { "group": 2 } },
+	{ "keys": ["ctrl+1"], "command": "select_by_index", "args": { "index": 0 } },
+	{ "keys": ["ctrl+2"], "command": "select_by_index", "args": { "index": 1 } },
+	{ "keys": ["ctrl+3"], "command": "select_by_index", "args": { "index": 2 } },
+	{ "keys": ["ctrl+4"], "command": "select_by_index", "args": { "index": 3 } },
+	{ "keys": ["ctrl+5"], "command": "select_by_index", "args": { "index": 4 } },
+	{ "keys": ["ctrl+6"], "command": "select_by_index", "args": { "index": 5 } },
+	{ "keys": ["ctrl+7"], "command": "select_by_index", "args": { "index": 6 } },
+	{ "keys": ["ctrl+8"], "command": "select_by_index", "args": { "index": 7 } },
+	{ "keys": ["ctrl+9"], "command": "select_by_index", "args": { "index": 8 } },
+	{ "keys": ["ctrl+0"], "command": "select_by_index", "args": { "index": 9 } },
+
+	{ "keys": ["ctrl+["], "command": "focus_neighboring_group", "args": {"forward": false} },
+	{ "keys": ["ctrl+]"], "command": "focus_neighboring_group" },
+
+	{ "keys": ["ctrl+="], "command": "indent" },
+	{ "keys": ["ctrl+-"], "command": "unindent" },
+
+	{ "keys": ["alt+="], "command": "jump_forward" },
+	{ "keys": ["alt+-"], "command": "jump_back" },
+
+	{ "keys": ["f5"], "command": "show_panel", "args": {"panel": "output.exec"} },
+
+	{ "keys": ["ctrl+alt+p"], "command": "prompt_select_workspace" },
+
+	{ "keys": ["ctrl+o"], "command": "switch_file", "args": {"extensions": ["cpp", "cxx", "cc", "c", "hpp", "hxx", "hh", "h", "ipp", "inl", "m", "mm"]} },
+]
