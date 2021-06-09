@@ -9,9 +9,9 @@
 		"fold_marker": "#FF0",
 		"foreground": "#FFFFFF",
 		"gutter": "#1F1D29",
-		"gutter_foreground": "#FFFFFF",
+		"gutter_foreground": "#817c9c",
 		"inactive_selection": "#0049F5",
-		"line_highlight": "#3E3D32",
+		"line_highlight": "#555169",
 		"selection": "#FAEBD791",
 		"selection_foreground": "white",
 		"tags_options": "underline"
