@@ -7,7 +7,7 @@
 		"brackets_options": "underline",
 		"caret": "rgba(144, 238, 144, 1)",
 		"fold_marker": "#FF0",
-		"foreground": "#FFFFFF",
+		"foreground": "white",
 		"gutter": "#1F1D29",
 		"gutter_foreground": "#817c9c",
 		"inactive_selection": "#0049F5",
@@ -26,7 +26,7 @@
 			"foreground": "#79FFCF"
 		},
 		{
-			"scope": "entity.name, keyword.declaration, meta.annotation, meta.path, meta.struct meta.block, meta.tag, support.variable, variable, variable.other.readwrite",
+			"scope": "keyword.declaration, meta.annotation, meta.path, meta.struct meta.block, meta.tag, support.variable, variable, variable.other.readwrite",
 			"foreground": "lightblue"
 		},
 		{
@@ -34,9 +34,8 @@
 			"foreground": "lightgreen"
 		},
 		{
-			"scope": "entity.name.enum, keyword.operator, meta.block meta.method entity.name.function, meta.block storage.modifier, meta.class storage.type, meta.function-call variable.function, meta.preprocessor, meta.struct storage.type - meta.block, meta.template storage.type, punctuation.section, variable.other",
-			"foreground": "#D3B58D", // undecided on these
-			"foreground": "#fff"
+			"scope": "entity.name, entity.name.enum, keyword.operator, meta.block meta.method entity.name.function, meta.block storage.modifier, meta.class storage.type, meta.function-call variable.function, meta.preprocessor, meta.struct storage.type - meta.block, meta.template storage.type, punctuation.section, variable.other, constant.other.placeholder",
+			"foreground": "white"
 		},
 		{
 			"scope": "entity.name.function, keyword, storage",
@@ -54,6 +53,10 @@
 		{
 			"scope": "string",
 			"foreground": "#0FDFAF"
+		},
+		{
+			"scope": "qxokospecial",
+			"foreground": ["hsl(200, 60%, 70%)", "hsl(330, 60%, 70%)"]
 		}
 	]
 }
