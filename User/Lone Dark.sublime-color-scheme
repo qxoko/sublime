@@ -1,4 +1,4 @@
-{
+ {
 	"name": "Lone Dark",
 	"globals": {
 		"accent": "#D3B58D",
@@ -26,15 +26,15 @@
 			"foreground": "#79FFCF"
 		},
 		{
-			"scope": "keyword.declaration, meta.annotation, meta.path, meta.struct meta.block, meta.tag, support.variable, variable, variable.other.readwrite",
+			"scope": "entity.name.section, keyword.declaration, meta.annotation, meta.path, meta.struct meta.block, meta.tag, support.variable, variable, variable.other.readwrite",
 			"foreground": "lightblue"
 		},
 		{
-			"scope": "entity.name.constant, keyword.control, meta.class entity.name.class, meta.constant, meta.function.parameters, meta.struct entity.name.struct, meta.struct meta.group, storage.type, support.constant, support.type, variable.type",
+			"scope": "entity.name.constant, keyword.control, meta.class entity.name.class, meta.preprocessor, meta.constant, meta.function.parameters, meta.struct entity.name.struct, meta.struct meta.group, storage.type, support.constant, support.type, variable.type",
 			"foreground": "lightgreen"
 		},
 		{
-			"scope": "entity.name, entity.name.enum, keyword.operator, meta.block meta.method entity.name.function, meta.block storage.modifier, meta.class storage.type, meta.function-call variable.function, meta.preprocessor, meta.struct storage.type - meta.block, meta.template storage.type, punctuation.section, variable.other, constant.other.placeholder",
+			"scope": "entity.name, entity.name.enum, keyword.operator, meta.block meta.method entity.name.function, meta.block storage.modifier, meta.class storage.type, meta.function-call variable.function, meta.struct storage.type - meta.block, meta.template storage.type, punctuation.section, variable.other, constant.other.placeholder",
 			"foreground": "white"
 		},
 		{
@@ -57,6 +57,23 @@
 		{
 			"scope": "qxokospecial",
 			"foreground": ["hsl(200, 60%, 70%)", "hsl(330, 60%, 70%)"]
+		},
+		{
+			"scope": "markup.bold",
+			"font_style": "bold"
+		},
+		{
+			"scope": "markup.italic",
+			"font_style": "italic"
+		},
+		{
+			"scope": "markup.underline",
+			"font_style": "underline"
+		},
+		{
+			"scope": "text.fountain markup.quote",
+			"foreground": "black",
+			"background": "#F6C177",
 		}
 	]
 }
