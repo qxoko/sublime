@@ -1,9 +1,9 @@
 {
 	"variables": {
 		"font_face": "InputMono",
-		"font_size_sm": 12,
+		"font_size_sm": 13,
 		"font_size": 13,
-		"font_size_lg": 14,
+		"font_size_lg": 13,
 		"font_size_title": 24,
 
 		"vcs_modified": "color(var(--bluish) min-contrast(var(--background) 2.5))",

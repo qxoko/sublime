@@ -2,15 +2,28 @@
 ---
 file_extensions:
   - x
-scope: text.cobweb
+scope: text.spindle
 
 contexts:
+  arguments:
+    - match: \S+
+      set:
+        - match: .+
+          scope: keyword.control
+        - match: $
+          pop: true
+
   comments:
     - match: '^\s*//.*$'
       scope: comment.line
 
+  special_comments:
+    - include: comments
+    - match: ^\s*#.*$
+      scope: comment
+
   brace_comments:
-    - match: '^\s*//.*\{'
+    - match: '^\s*//.*\{$'
       push: brace_comment_inside
 
   brace_comment_inside:
@@ -20,24 +33,40 @@ contexts:
     - match: \}
       pop: true
 
-  code_blocks:
-    - match: '^\s*(code)\s*(.+)\s*{$'
+  code_blocks_comment:
+    - match: '^\s*(code)\s*(comment)\s*{$'
       captures:
         1: entity.name
         2: comment
-      push: brace_clear
+      push: code_blocks_inside
+      with_prototype:
+        - include: special_comments
 
-  brace_clear:
-    - meta_scope: foreground
+  code_blocks:
+    - match: '^\s*(code|function)\s*(.+){$'
+      captures:
+        1: entity.name
+        2: comment
+      push: code_blocks_inside
+
+  code_blocks_inside:
     - match: \{
-      push: brace_clear
+      push: code_blocks_inside
     - match: \}
       pop: true
+
+  links:
+    - match: '(\[).*?(\]\(.*?\))'
+      captures:
+        1: comment
+        2: comment
 
   main:
     - include: brace_comments
     - include: comments
+    - include: code_blocks_comment
     - include: code_blocks
+    - include: links
 
     # if-statement
     - match: '^\s*(if)'
@@ -64,11 +93,23 @@ contexts:
     # function
     - match: '^\s*ø'
       scope: string
+      push: arguments
+
+    # function
+    - match: '^\s*~'
+      scope: string
+      push: arguments
+
+    # import
+    - match: '^\s*>'
+      scope: entity
+      push: arguments
 
     # headings
     - match: '^\s*\#+'
-      scope: string
+      scope: support.constant
       push:
+        - include: links
         - match: '<.+?>'
           scope: comment
         - match: '$'
@@ -86,23 +127,13 @@ contexts:
     - match: '^\s*\$+'
       scope: support.function
 
-    # import
-    - match: '^\s*>'
-      scope: entity
-
-    - match: '^\s*\+'
-      scope: entity
-      push:
-        - match: \S+
-          set:
-            - match: .+
-              scope: keyword.control
-            - match: $
-              pop: true
-
-    # inline code
-    - match: '`'
-      scope: comment.line
+    # # inline code
+    # - match: '`'
+    #   scope: string
+    #   push:
+    #     - meta_scope: string
+    #     - match: '`'
+    #       pop: true
 
     # page key
     - match: '^\b(html)\b.+{$'
@@ -133,21 +164,12 @@ contexts:
     # html
     - match: '^\s*\*'
       scope: comment
-      push: 'Packages/HTML/HTML.sublime-syntax'
-      with_prototype:
-        - match: '$'
-          pop: true
 
-    # inline link
-    - match: '(\[).*?(\]\(.*?\))'
-      captures:
-        1: comment
-        2: comment
 
     # divider
     - match: '^\s*\-\-\-'
       scope: comment
 
     # lists
-    - match: '^\s*\-'
+    - match: '^\s*(\-|\+)'
       scope: string
